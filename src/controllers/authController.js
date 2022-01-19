@@ -39,6 +39,8 @@ class AuthController {
 
     const candidate = await Users.findOne({ username });
 
+    console.log('start creating user')
+
     if (!candidate) {
       const img = await createScreenshot(username);
 
@@ -52,10 +54,6 @@ class AuthController {
     }
 
     res.json(candidate);
-  }
-
-  async welcome(req, res) {
-    res.send('Welcome')
   }
 
 }
