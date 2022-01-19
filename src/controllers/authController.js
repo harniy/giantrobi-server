@@ -25,7 +25,7 @@ const createScreenshot = async (username) => {
 
     const imgName = `twitter-${Date.now()}.png`;
 
-    await page.screenshot({ path: `src/public/images/${imgName}` });
+    await page.screenshot({ path: `${__dirname}/public/images/${imgName}` });
     await browser.close();
 
     return imgName;
