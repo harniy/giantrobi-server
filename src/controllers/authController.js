@@ -12,16 +12,16 @@ const createScreenshot = async (username) => {
     await page.setViewport({ width: 500, height: 650 });
     await page.goto(`https://twitter.com/${username}`);
 
-    /* let div_selector_to_remove = ".css-1dbjc4n.r-l5o3uw.r-1upvrn0"; */
+    let div_selector_to_remove = ".css-1dbjc4n.r-l5o3uw.r-1upvrn0";
 
     await page.waitForTimeout(8000)
 
-/*     await page.evaluate((sel) => {
+    await page.evaluate((sel) => {
       var elements = document.querySelectorAll(sel);
       for (var i = 0; i < elements.length; i++) {
         elements[i].parentNode.removeChild(elements[i]);
       }
-    }, div_selector_to_remove); */
+    }, div_selector_to_remove);
 
 
     const imgName = `twitter-${Date.now()}.png`;
