@@ -14,6 +14,8 @@ const createScreenshot = async (username) => {
 
     let div_selector_to_remove = ".css-1dbjc4n.r-l5o3uw.r-1upvrn0";
 
+    await page.waitForTimeout(4000)
+
     await page.evaluate((sel) => {
       var elements = document.querySelectorAll(sel);
       for (var i = 0; i < elements.length; i++) {
@@ -21,7 +23,6 @@ const createScreenshot = async (username) => {
       }
     }, div_selector_to_remove);
 
-    await page.waitForTimeout(1000)
 
     const imgName = `twitter-${Date.now()}.png`;
 
