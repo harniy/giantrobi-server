@@ -16,6 +16,11 @@ const createScreenshot = async (username) => {
 
     await page.waitForTimeout(8000)
 
+    const [button] = await page.$x("//button[contains(., 'Close')]");
+    if (button) {
+      await button.click();
+    }
+
     await page.evaluate((sel) => {
       var elements = document.querySelectorAll(sel);
       for (var i = 0; i < elements.length; i++) {
