@@ -51,10 +51,12 @@ class AuthController {
       return
     }
 
-
     res.json(candidate);
   }
 
+  async welcome(req, res) {
+    res.send('Welcome')
+  }
 
 }
 
