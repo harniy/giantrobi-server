@@ -16,7 +16,7 @@ const createScreenshot = async (username) => {
 
     await page.waitForTimeout(8000)
 
-    const [button] = await page.$x("//button[contains(., 'Close')]");
+    const [button] = await page.$x("//a[contains(., 'Close')]");
     if (button) {
       await button.click();
     }
