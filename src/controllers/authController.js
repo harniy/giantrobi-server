@@ -14,7 +14,7 @@ const createScreenshot = async (username) => {
 
     let div_selector_to_remove = ".css-1dbjc4n.r-l5o3uw.r-1upvrn0";
 
-    await page.waitForTimeout(5000)
+    await page.waitForTimeout(8000)
 
     await page.evaluate((sel) => {
       var elements = document.querySelectorAll(sel);
