@@ -6,7 +6,7 @@ const puppeteer = require("puppeteer");
 const createScreenshot = async (username) => {
   try {
     const browser = await puppeteer.launch({
-      args: ["--no-sendbox"]
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
     const page = await browser.newPage();
     await page.setViewport({ width: 500, height: 450 });
