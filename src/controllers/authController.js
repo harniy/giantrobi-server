@@ -9,17 +9,12 @@ const createScreenshot = async (username) => {
       args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
     const page = await browser.newPage();
-    await page.setViewport({ width: 500, height: 450 });
+    await page.setViewport({ width: 500, height: 550 });
     await page.goto(`https://twitter.com/${username}`);
 
     let div_selector_to_remove = ".css-1dbjc4n.r-l5o3uw.r-1upvrn0";
 
-    await page.waitForTimeout(8000)
-
-    const [button] = await page.$x("//a[contains(., 'Close')]");
-    if (button) {
-      await button.click();
-    }
+    await page.waitForTimeout(5000)
 
     await page.evaluate((sel) => {
       var elements = document.querySelectorAll(sel);
@@ -31,7 +26,7 @@ const createScreenshot = async (username) => {
 
     const imgName = `twitter-${Date.now()}.png`;
 
-    await page.screenshot({ path: `${__dirname}/../public/images/${imgName}` });
+    await page.screenshot({ path: `${__dirname}/../public/images/${imgName}`, clip: {x: 70, y: 0, width: 450, height: 400} });
     await browser.close();
 
     return imgName;
