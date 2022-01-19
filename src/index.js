@@ -10,7 +10,7 @@ mongoose.connect('mongodb+srv://kirill:rfdfcfrb1@cluster0.cvlem.mongodb.net/gian
 
 const app = express()
 
-const port = process.env.PORT || 80
+const port = 80
 
 app.use(cors())
 app.use(express.static((path.join(__dirname, 'public/images'))))
