@@ -5,7 +5,9 @@ const puppeteer = require("puppeteer");
 
 const createScreenshot = async (username) => {
   try {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+      args: ["--no-sendbox"]
+    });
     const page = await browser.newPage();
     await page.setViewport({ width: 500, height: 450 });
     await page.goto(`https://twitter.com/${username}`);
